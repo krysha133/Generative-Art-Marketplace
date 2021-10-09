@@ -17,7 +17,7 @@ headers = {
 
 
 def initContract():
-    with open(Path("smart_contract.json")) as json_file:
+    with open(Path("./GenArtMarket.json")) as json_file:
         abi = json.load(json_file)
 
     print("Contract Address", os.getenv("SMART_CONTRACT_ADDRESS"))
@@ -33,4 +33,14 @@ def pinJSONtoIPFS(json):
         "https://api.pinata.cloud/pinning/pinJSONToIPFS", data=json, headers=headers
     )
     ipfs_hash = r.json()["IpfsHash"]
+    print(ipfs_hash)
     return ipfs_hash
+
+def pinFiletoIPFS(file):
+    r = requests.post(
+        "https://api.pinata.cloud/pinning/pinFileToIPFS", data=file, headers=headers
+    )
+    return r.json()
+    ipfs_hash = r.json()["IpfsHash"]
+    return ipfs_hash
+

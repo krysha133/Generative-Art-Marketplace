@@ -1,0 +1,2 @@
+python run.py --style_image=imgs/rain_princess.jpg --content_image=imgs/hoovertowernight.jpg --imsize=1024 --loss=wass
+python run.py --style_image=imgs/montreal.jpg --imsize=1024 --disc_model=mlp 
